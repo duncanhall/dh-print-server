@@ -11,12 +11,10 @@ COPY public             /data/public
 COPY ./server.js        /data/
 COPY ./package.json     /data/
 
-RUN sudo apt-get update && apt-get install -y libcups2-dev
-
 RUN npm install
 
 WORKDIR /data
 
 EXPOSE 1985
 
-CMD ["bash"]
+CMD ["node", "server.js"]
