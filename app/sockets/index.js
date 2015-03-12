@@ -1,7 +1,7 @@
 'use strict';
 
 var io;
-var printer = require('printer');
+var printatronClient;
 
 /**
  *
@@ -19,7 +19,10 @@ function init (http) {
  */
 function connectHandler (socket) {
 
-  console.log('Socket connected');
+  socket.on('printatron-client-id', function () {
+    printatronClient = socket;
+  });
+
   socket.on('print-request', printRequestHandler);
   socket.on('disconnect', disconnectHandler);
 }
@@ -30,23 +33,15 @@ function connectHandler (socket) {
  */
 function printRequestHandler (printRequest) {
 
-  console.log('Got print request: ' + printRequest);
-
-  printer.printDirect({data:printRequest // or simple String: "some text"
-    , printer:'Brother HL-1430' // printer name, if missing then will print to default printer
-    , type: 'TEXT' // type: RAW, TEXT, PDF, JPEG, .. depends on platform
-    , success:function(jobID){
-      console.log("sent to printer with ID: "+jobID);
-    }
-    , error:function(err){console.log(err);}
-  });
+  if (printatronClient !== undefined && printatronClient !== null) {
+    printatronClient.emit('relay-print', printRequest);
+  }
 }
 
 /**
  *
  */
 function disconnectHandler () {
-
   console.log('Socket disconnected');
 }
 

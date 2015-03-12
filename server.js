@@ -11,6 +11,5 @@ app.use('/', express.static(__dirname + '/public'));
 sockets.init(http);
 
 var server = http.listen(1985, function () {
-
   console.log('Printatron listening on 1985');
 });

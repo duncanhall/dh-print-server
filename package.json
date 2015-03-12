@@ -18,11 +18,6 @@
   "homepage": "https://github.com/duncanhall/dh-print-server",
   "dependencies": {
     "express": "^4.12.2",
-    "ipp": "0.0.6",
-    "printer": "^0.1.1",
     "socket.io": "^1.3.5"
-  },
-  "devDependencies": {
-    "pdfkit": "^0.7.0"
   }
 }
