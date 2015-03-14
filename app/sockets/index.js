@@ -20,22 +20,11 @@ function init (http) {
 function connectHandler (socket) {
 
   socket.on('printatron-client-id', function () {
+    console.log('Printer client connected');
     printatronClient = socket;
   });
 
-  socket.on('print-request', printRequestHandler);
   socket.on('disconnect', disconnectHandler);
-}
-
-/**
- *
- * @param printRequest
- */
-function printRequestHandler (printRequest) {
-
-  if (printatronClient !== undefined && printatronClient !== null) {
-    printatronClient.emit('relay-print', printRequest);
-  }
 }
 
 /**
@@ -45,4 +34,16 @@ function disconnectHandler () {
   console.log('Socket disconnected');
 }
 
+/**
+ *
+ * @param printJob
+ */
+function sendPrintRequest (printJob) {
+
+  if (printatronClient !== undefined && printatronClient !== null) {
+    printatronClient.emit('relay-print', printJob);
+  }
+}
+
 exports.init = init;
+exports.sendPrintRequest = sendPrintRequest;
