@@ -1,9 +1,13 @@
 
-var MessageBox = React.createClass({
+var React = require('react');
+var NavMenu = require('../nav/NavMenu.jsx');
+
+var PrintRequestScreen = React.createClass({
 
   render: function () {
     return (
       <form>
+        <NavMenu />
         <h1><label htmlFor="print-message">Print-o-tron</label></h1>
         <textarea className="form-control" rows="7" id="print-message"
           value={this.state.msg}
@@ -42,5 +46,4 @@ var MessageBox = React.createClass({
   }
 });
 
-
-React.render(<MessageBox />, document.getElementById('content'));
+module.exports = PrintRequestScreen;

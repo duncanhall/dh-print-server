@@ -1,5 +1,21 @@
 body, html {
-    background-color: #7D7D7D;
+    background-color: #7D7D7D !important;
+}
+
+.main-nav-menu {
+    list-style-type: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav-menu li{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.main-nav-menu li a{
+    color: #333333
 }
 
 .btn {
