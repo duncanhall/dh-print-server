@@ -15,7 +15,7 @@ var PrintRequestScreen = React.createClass({
         </textarea>
         <button type="submit" className="btn btn-default pull-right" id="submit-btn"
           onClick={this.handleSubmit}>
-          <span className="glyphicon glyphicon-print" aria-hidden="true"></span> PC LOAD LETTER
+          <span className="glyphicon glyphicon-print" aria-hidden="true"></span> PC LOAD LETTER IS
         </button>
       </form>
     );

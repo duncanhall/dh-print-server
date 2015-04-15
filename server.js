@@ -8,8 +8,18 @@ var sockets = require(path.resolve('app/sockets'));
 var bodyParser = require('body-parser');
 var form = require(path.resolve('app/form'));
 
+//Use Handlebars
+app.set('view engine', 'hbs');
 
-app.use('/', express.static(__dirname + '/public'));
+//Serve Assets
+app.use(express.static(path.join(path.normalize(__dirname + '/public'))));
+
+app.get('/*', function(req, res) {
+  res.render(__dirname + '/public/index.hbs', {thing:'yeah yeah yeah'});
+});
+
+
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/printer', form.router);
 

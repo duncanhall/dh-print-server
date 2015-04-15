@@ -4,8 +4,7 @@
   "description": "A print server",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --devtool eval --hot --progress --colors --content-base public"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -22,6 +21,7 @@
     "css-loader": "^0.9.1",
     "express": "^4.12.2",
     "file-loader": "^0.8.1",
+    "hbs": "^3.0.1",
     "jsx-loader": "^0.12.2",
     "react": "^0.12.2",
     "react-router": "^0.12.4",
@@ -29,5 +29,10 @@
     "style-loader": "^0.8.3",
     "url-loader": "^0.5.5",
     "webpack": "^1.7.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-html-replace": "^1.4.4",
+    "gulp-shell": "^0.4.0"
   }
 }
